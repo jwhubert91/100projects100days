@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>BBC - Homepage</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<script src="https://kit.fontawesome.com/157363d17e.js" crossorigin="anonymous"></script>
+	<style>
+		/* setup */
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: white;
+			font-family: sans-serif;
+		}
+		/* navbar */
+		.main-nav-icon {
+			background-color: white;
+			height: 30px;
+		}
+		ul.nav-ul {
+			list-style-type: none;
+			padding: 0;
+			overflow: hidden;
+			background-color: black;
+			height: 40px;
+			width: 100%;
+			min-width: 1000px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		ul.nav-ul li {
+			float: left;
+			line-height: 40px;
+		}
+		ul.nav-ul a {
+			display: block;
+			color: white;
+			text-align: center;
+			text-decoration: none;
+			border-right: 1px solid gray;
+			padding-left: 15px;
+			padding-right: 15px;
+			font-size: 80%;
+		}
+		ul.nav-ul a:hover {
+			cursor: pointer;
+			border-bottom: 3px solid gray;
+		}
+		ul.nav-ul li a i.fa-user {
+			margin-right: 10px;
+			color: black;
+			background-color: white;
+			padding: 5px;
+			border-radius: 50%;
+		}
+		ul.nav-ul li a i.fa-sort-down {
+			color: white;
+			font-size: 120%;
+			margin-left: 45px;
+		}
+		ul.nav-ul li a.nav-logo {
+			padding-top: 5px;
+			margin-left: 60px;
+		}
+		ul.nav-ul li:last-child {
+			padding-left: 15px;
+		}
+		ul.nav-ul li input[type=text] {
+			margin-left: 15px;
+			width: 80%;
+			max-width: 160px;
+			border: none;
+			font-size: 80%;
+			padding: 5px;
+			font-weight: bold;
+		}
+		.nav-search-icon {
+			color: black;
+			background-color: white;
+			font-size: 110%;
+			padding: 4px;
+			margin-top: 8px;
+			position: absolute;
+		}
+		/* page content */
+		div.page-content {
+			margin: 0;
+			width: 100%;
+			height: 1000px;
+		}
+		div.page-content section {
+			margin: 0;
+		}
+		.module-header h2 {
+			font-size: 21px;
+		}
+		.module-header .welcome-span {
+			color: #606060;
+			margin-left: 20px;
+		}
+		.module-header .date-span {
+			position: absolute;
+			right: 20px;
+			color: #A8A8A8;
+			font-weight: normal;
+		}
+		.news-section {
+			display: grid;
+			height: 320px;
+			width: 100%;
+		}
+		.ns1 {
+			grid-template-areas: 
+				'half half eighth eighth'
+				'half half eighth eighth';
+		}
+		.news-box-image {
+			background-repeat: no-repeat;
+			background-size: cover;
+			transition: 0.4s;
+			position: relative;
+			filter: brightness(0.7);
+		}
+		.news-box-image:hover {
+			cursor: pointer;
+			filter: brightness(0.85);
+		}
+		.news-box-half {
+			grid-area: half;
+			margin: 5px 10px;
+			background-image: url('images/bibi.jpeg');
+		}
+		.news-box-eighth {
+			margin: 5px 10px;
+		}
+		.nbe1 {
+			background-image: url('images/baghdad-embassy.jpg');
+		}
+		.nbe2 {
+			background-image: url('images/soccer.jpg');
+		}
+		.nbe3 {
+			background-image: url('images/fashion.jpg');
+		}
+		.nbe4 {
+			background-image: url('images/overworked.jpg');
+		}
+		.news-box a.media-link {
+			color: white;
+			font-size: 150%;
+			position: absolute;
+		}
+		.news-module-header h2 {
+			border-left: 4px solid red;
+			margin-left: 10px;
+		}
+		.module-news-span {
+			color: #606060;
+			margin-left: 5px;
+		}
+		.ns2 {
+			grid-template-areas: 
+				'sixth sixth sixth'
+				'sixth sixth sixth';
+			height: 400px;
+		}
+		.nbs {
+			margin: 10px 15px;
+		}
+		.nbs1 {
+			background-image: url('images/burned-house.jpeg');
+		}
+		.nbs2 {
+			background-image: url('images/pope-francis.jpg');
+		}
+		.nbs3 {
+			background-image: url('images/ghosn.jpeg');
+		}
+		.news-box-text h2 {
+			position: absolute;
+			overflow-wrap: normal;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="main-nav">
+		<ul class="nav-ul">
+			<li><a href="#nav-logo" id="nav-logo" class="nav-logo"><img class="main-nav-icon" src="images/bbc-nav-icon-resized.png"></a></li>
+			<li><a href="#" alt="sign in" class="nav-button"><i class="fas fa-user"></i>Sign In</a></li>
+			<li><a href="file://///Users/jameshubert/Documents/Programming/WebDevPercivalUdemy/2-css/codeAlong-bbcNewsClone/news.html" alt="news" class="nav-button">News</a></li>
+			<li><a href="#" alt="sport" class="nav-button">Sport</a></li>
+			<li><a href="#" alt="reel" class="nav-button">Reel</a></li>
+			<li><a href="#" alt="worklife" class="nav-button">Worklife</a></li>
+			<li><a href="#" alt="travel" class="nav-button">Travel</a></li>
+			<li><a href="#" alt="future" class="nav-button">Future</a></li>
+			<li><a href="#" alt="more" class="nav-button">More<i class="fas fa-sort-down"></i></a></li>
+			<li class="nav-search"><input type="text" placeholder="Search"><i class="fas fa-search nav-search-icon"></i></li>
+		</ul>
+	</nav>
+
+	<div class="page-content">
+		<section class="module-header">
+			<h2><span class="welcome-span">Welcome to BBC.com</span><span class="date-span">Wednesday, 1 January</span></h2>
+		</section>
+		<section class="news-section ns1">
+			<div class="news-box-image news-box-half nbh">
+				<!--<a class="media-link">Netanyahu asks for immunity from prosecution</a>
+			  <p class="news-box-subtitle">The move is likely to delay the trial of the Israeli PM</p>
+				<a class="media-tag">MIDDLE EAST</a> -->
+			</div>
+			<div class="news-box-image news-box-eighth nbe1"></div>
+			<div class="news-box-image news-box-eighth nbe2"></div>
+			<div class="news-box-image news-box-eighth nbe3"></div>
+			<div class="news-box-image news-box-eighth nbe4"></div>
+		</section>
+
+		<section class="module-header news-module-header">
+			<h2><span class="module-news-span">News</span></h2>
+		</section>
+		<section class="news-section ns2">
+			<div class="news-box-image nbs nbs1"></div>
+			<div class="news-box-image nbs nbs2"></div>
+			<div class="news-box-image nbs nbs3"></div>
+			<div class="news-box-text nbs nbs4"></div>
+			<div class="news-box-text nbs nbs5"></div>
+			<div class="news-box-text nbs nbs6"></div>
+		</section>
+	</div>
+	
+</body>
+</html>
