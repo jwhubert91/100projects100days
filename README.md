@@ -1,5 +1,3 @@
-<h1>100projects100days</h1>
-
 # 100projects100days
 100 development projects in 100 days
 
