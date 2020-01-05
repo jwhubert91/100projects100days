@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Form Validation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style>
+
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		html {
+			font-family:Arial, Helvetica, sans-serif;
+			font-size: 200%;
+		}
+		section#errorSection {
+			border: 1px dotted red;
+			color: darkred;
+			width: 66%;
+			height: auto;
+			margin: 10px auto;
+			display: none;
+			font-size: 14px;
+			padding: 20px;
+		}
+		section#email-submission-form {
+			background-color: gainsboro;
+			width: 66%;
+			height: auto;
+			padding: 30px;
+			border: 2px solid gray;
+			border-radius: 5px;
+			margin: 10px auto;
+			position: relative;
+		}
+		h3 {
+			font-style: italic;
+			margin: 30px;
+		}
+		label {
+			position: relative;
+			top: 4px;
+			float: left;
+			width: 300px;
+		}
+		input {
+			height: 40px;
+			width: 300px;
+			border-radius: 4px;
+			border: 1px solid gray;
+			font-size: 18px;
+			padding: 5px;
+		}
+		#form-submit {
+			height: 50px;
+			clear: both;
+			position: relative;
+			left: 30%;
+			background-color: darkgray;
+			font-size: 30px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<h3>Form Validation</h3>
+
+	<section id="errorSection"></section>
+
+	<section id="email-submission-form">
+		<p>
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email" placeholder="e.g. jim123@email.com...">
+		</p>
+		<p>
+			<label for="phone">Phone</label>
+			<input type="text" name="phone" id="phone" placeholder="e.g. (281)-330-8004">
+		</p>
+		<p>
+			<label for="password">Password</label>
+			<input type="password" name="password" id="password">
+		</p>
+		<p>
+			<label for="confirm-password">Confirm Password</label>
+			<input type="password" name="confirm-password" id="confirm-password">
+		</p>
+		<p>
+			<input id="form-submit" type="submit" value="Sign In">
+		</p>
+	</section>
+
+	<script>
+
+		function isEmail(emailString) {
+			let regex = (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+			return regex.test(emailString);
+		}
+
+		$("#form-submit").click(function() {
+			let emailUserInputString = $("#email").val();
+			let errorMessage = "";
+			let fieldsMissing = "";
+
+			// fields missing checks
+			if ($("#email").val() == "") {
+				fieldsMissing += "<li>Email</li>";
+			}
+			if ($("#phone").val() == "") {
+				fieldsMissing += "<li>Phone</li>";
+			}
+			if ($("#password").val() == "") {
+				fieldsMissing += "<li>Password</li>";
+			}
+			if ($("#password").val() == "") {
+				fieldsMissing += "<li>Confirm Password</li>";
+			}
+
+			if (fieldsMissing != "") {
+				errorMessage += "<p>The following fields are missing:" + "<ul>" + fieldsMissing + "</ul>";
+			}
+
+			// input validations
+			if (isEmail(emailUserInputString) == false) {
+				errorMessage += "<p>Your email address is not valid.</p>";
+			}
+			if ($.isNumeric($("#phone").val()) == false) {
+				errorMessage += "<p>Your phone number is not valid.</p>";
+			}
+			if ($("#password").val() != $("#confirm-password").val()) {
+				errorMessage += "<p>The passwords given do not match.</p>";
+			}
+
+			if (errorMessage != "") {
+				$("#errorSection").html(errorMessage);
+				$("#errorSection").show();
+			} else {
+				$("#errorSection").html("Sign in successful!");
+				$("#errorSection").css("color", "green");
+				$("#errorSection").css("border", "1px dotted green");
+				$("#errorSection").show();
+			}
+
+		})
+	
+	</script>
+	
+</body>
+</html>
