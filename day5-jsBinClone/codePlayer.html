@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>James' Code Player</title>
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		nav {
+			width: 100%;
+			background-color: #eeeeee;
+			padding: 5px;
+			height: 32px;
+		}
+		#logo-div {
+			float: left;
+			font-weight: bold;
+			font-size: 120%;
+			padding: 5px 0px 0px 5px;
+		}
+		#button-container {
+			width: 242px;
+			margin: 0 auto;
+		}
+		.toggle-button {
+			float: left;
+			border: 1px solid gray;
+			border-right: none;
+			padding: 5px;
+			cursor: pointer;
+		}
+		#html-button {
+			border-top-left-radius: 4px;
+			border-bottom-left-radius: 4px;
+		}
+		#output-button {
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+			border-right: 1px solid gray;
+		}
+		.highlighted-button {
+			background-color: rgba(212,175,55,0.7);
+		}
+		.active {
+			background-color: gold;
+		}
+		main {
+			height: 100%;
+		}
+		.panel {
+			float: left;
+			height: 100%;
+		}
+		.hidden {
+			display: none;
+		}
+		textarea {
+			height: 100%;
+			resize: none;
+			font-size: 14px;
+			border-width: 1px 0 0 1px;
+			border-color: lightgray;
+		}
+		iframe {
+			border: 1px solid lightgray;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<nav>
+
+		<div id="logo-div">CodePlayer</div>
+
+		<div id="button-container">
+			<div class="toggle-button active" id="html-button">HTML</div>
+			<div class="toggle-button" id="css-button">CSS</div>
+			<div class="toggle-button" id="javascript-button">Javascript</div>
+			<div class="toggle-button active" id="output-button">Output</div>
+		</div>
+
+	</nav>
+
+	<main id="body-container">
+		<textarea id="html-area" class="panel" placeholder="HTML"></textarea>
+		<textarea id="css-area" class="panel hidden" placeholder="CSS"></textarea>
+		<textarea id="javascript-area" class="panel hidden" placeholder="Javascript"></textarea>
+		<iframe id="output-area" class="panel"></iframe>
+	</main>
+
+	<script>
+
+		// BUTTON EFFECTS
+		$('.toggle-button').hover(function() {
+			// handlerIn
+			$(this).addClass('highlighted-button');
+		}, function() {
+			// handlerOut
+			$(this).removeClass('highlighted-button');
+		})
+		// BUTTON CLICK FUNCTIONALITY
+		$('.toggle-button').click(function () {
+			$(this).toggleClass('active');
+			let buttonId = $(this).attr("id");
+			let panelId = buttonId.replace("button","area");
+			$("#"+panelId).toggleClass("hidden");
+			mainAreaTemplateResize();
+		})
+
+		// MAIN AREA SIZING
+		let mainAreaTemplateResize = function() {
+			let numActivePanels = (4 - $('.hidden').length);
+			$('main').css('height', function () {
+				return $(window).height() - $('nav').height() - 16;
+			});
+			$('.panel').width(($(window).width() / numActivePanels) - 5);
+		}
+		// call on page load
+		mainAreaTemplateResize();
+		// call on window resize
+		$(window).resize(function() {
+			mainAreaTemplateResize();
+		})
+		
+		// RENDER IFRAME CONTENT
+		let renderIframeContent = function() {
+			// html and css render...
+			$('iframe').contents().find("html").html("<html><head><style>" + $('#css-area').val() + "</style></head><body>" + $("#html-area").val());
+			// javascript render...
+			let iframeWindow = document.getElementById("output-area").contentWindow;
+			iframeWindow.eval($("#javascript-area").val());
+		}
+		// render on page load
+		renderIframeContent();
+		// render on change
+		$('textarea').on('change keyup paste', function() {
+			renderIframeContent();
+		})
+
+	</script>
+	
+</body>
+</html>
