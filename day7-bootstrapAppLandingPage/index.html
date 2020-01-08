@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Bootstrap Landing Page</title>
+	<style>
+		body {
+			position: relative;
+		}
+		.jumbotron {
+			background-image: url("images/unsplash-background.jpg");
+			margin-top: 50px;
+		}
+		#emailInlineFormInput {
+			width: 300px;
+		}
+		#summary-container {
+			text-align: center;
+			padding: 70px;
+		}
+		#summary-container p {
+			margin-top: 20px;
+		}	
+		.inline-icon-img {
+			height: 25px;
+			padding-right: 10px;
+		}
+		#app-logo {
+			height: 75px;
+		}
+		div#features {
+			padding: 30px;
+		}
+		#footer-container {
+			text-align: center;
+			padding: 40px;
+			margin: 0 auto;
+			width: 100%;
+		}
+		.card-updated-time {
+			position: absolute;
+			bottom: 5px;
+		}
+	</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar">
+		<a class="navbar-brand" href="#navbar">MyApp</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#jumbotron">Learn More</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#features">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#download">Download</a>
+				</li>				
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email">
+				<input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
+				<button class="btn btn-info my-2 my-sm-0" type="submit">Log In</button>
+			</form>
+		</div>
+	</nav>
+
+	<div id="jumbotron" class="jumbotron">
+		<h1 class="display-4 text-white">Hello, world!</h1>
+		<p class="lead text-white">MyApp is a Chinese multi-purpose messaging, social media and mobile payment app developed by Tencent. It was first released in
+		2011, and became one of the world's largest standalone mobile apps in 2018, with over 1 billion monthly active users.</p>
+		<hr class="my-4">
+		<p class="text-white">Join the waitlist.</p>
+		<form>
+			<div class="form-row align-items-center">
+				<div class="col-auto">
+					<label class="sr-only" for="email">Email</label>
+					<input type="email" class="form-control mb-2" id="emailInlineFormInput" placeholder="calvin@hobbes.com">
+				</div>
+				<div class="col-auto">
+					<button type="submit" class="btn btn-warning mb-2">Sign Up</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="summary-container" class="container">
+		<h1>Why this app is so awesome</h1>
+		<p class="lead">Summary of your app's awesomeness :)</p>
+	</div>
+
+	<div id="features" class="container">
+		<div class="card-deck">
+			<div class="card">
+				<img class="card-img-top" src="images/wechat_pay.png" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title"><img src="images/payment-icon.png" class="inline-icon-img">MyApp Pay</h5>
+					<p class="card-text">In China, users who have provided bank account information may use the app to pay bills, order goods and services,
+					transfer money to other users, and pay in stores if the stores have MyApp payment option. Vetted third parties, known
+					as "official accounts", offer these services by developing lightweight "apps within the app".</p>
+					<p class="card-text card-updated-time"><small class="text-muted">Last updated 3 weeks ago</small></p>
+				</div>
+			</div>
+			<div class="card">
+				<img class="card-img-top" src="images/wechat-b2c.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title"><img src="images/business-icon.png" class="inline-icon-img">B2C Mode</h5>
+					<p class="card-text">MyApp's main profit center. This mode has been used by many hospitals, banks, fashion brands, internet companies and personal blogs because the
+					Official Account can access online payment, location sharing, voice messages, mini-games, etc.</p>
+					<p class="card-text card-updated-time"><small class="text-muted">Last updated 3 days ago</small></p>
+				</div>
+			</div>
+			<div class="card">
+				<img class="card-img-top" src="images/wechat-surveillance.png" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title"><img src="images/magnifying-glass-icon.png" class="inline-icon-img">Surveillance</h5>
+					<p class="card-text">MyApp operates from China under Chinese law, which includes strong censorship provisions and interception
+					protocols. MyApp can access and expose the text messages, contact books, and location histories of its users.
+					Due to MyApp's popularity, the Chinese government uses MyApp as a data source to conduct mass surveillance in China.</p>
+					<p class="card-text card-updated-time"><small class="text-muted">Last updated 3 mins ago</small></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer id="footer-container" class="bg-info">
+			<h2 id="download">Download the app!</h2>
+			<p class="lead">Christ compels you!</p>
+			<p><a href=""><img id="app-logo" src="images/download-app-icon.png"></a></p>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script>
+		
+	</script>
+
+</body>
+</html>
