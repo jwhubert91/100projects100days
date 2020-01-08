@@ -82,8 +82,48 @@
 		}
 		setPanelHeight();
 
+		// render British English translation in iframe
+		let renderIframeContent = function () {
+			// html and css render...
+			$('iframe').contents().find("html").html("<html><head><style>" + $('#css-area').val() + "</style></head><body>" + $("#html-area").val());
+		}
+		renderIframeContent();
+		$('textarea').on('change keyup paste', function () {
+			renderIframeContent();
+		})
+
 		let dictionary = {
-			"Hello world":"'allo gov!'"
+			"Hello world":"'allo gov!",
+			"truck":"lorry",
+			"apartment":"flat",
+			"appetizer":"starter",
+			"candy":"sweets",
+			"phone":"telly",
+			"chips":"crisps",
+			"cookie":"biscuit",
+			"counter clockwise":"anticlockwise",
+			"left":"right",
+			"right":"left",
+			"drugstore":"chemist",
+			"elevator":"lift",
+			"gas":"petrol",
+			"highway":"motorway",
+			"freeway":"motorway",
+			"fries":"chips",
+			"liquor store":"off-licence",
+			"mailbox":"postbox",
+			"pants":"trousers",
+			"parking lot":"car park",
+			"period":"full stop",
+			"sidewalk":"pavement",
+			"soccer":"football",
+			"sneakers":"trainers",
+			"subway":"underground",
+			"trunk":"boot",
+			"vacation":"holiday",
+			"president":"prime minister",
+			"guy":"geezer",
+			"What's up?":"What's all this then?"
 		}
 
 		// alert(dictionary["Hello world"]);
