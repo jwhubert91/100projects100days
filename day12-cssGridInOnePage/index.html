@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Grid in One Page</title>
+	<style>
+		html,body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+		nav {
+			border-bottom: 1px solid gray;
+		}
+		#nav-header-image {
+			height: 45px;
+			margin-top: 5px;
+		}
+		nav h2 {
+			line-height: 50px;
+			margin-left: 10px;
+		}
+		#scrollspy-container-div {
+			height: 100%;
+		}
+		#text-div {
+			position: relative;
+			height: 100%;
+			overflow-y: scroll;
+			padding-bottom: 200px;
+		}
+		#text-div h4 {
+			margin-top: 25px;
+			margin-bottom: 15px;
+		}
+
+	</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="nav justify-content-center">
+		<img id="nav-header-image" src="css3-icon.png">
+		<h2 class="text-center">CSS Grid in One Page</h2>
+	</nav>
+	<div id="scrollspy-container-div" class="container-fluid">
+		<div class="row">
+			<div id="sections-list" class="list-group col-3">
+				<a class="list-group-item list-group-item-action" href="#list-item-1">Introduction</a>
+				<a class="list-group-item list-group-item-action" href="#list-item-2">Recommended Background Knowledge</a>
+				<a class="list-group-item list-group-item-action" href="#list-item-3">Grid vs Flexbox</a>
+				<a class="list-group-item list-group-item-action" href="#list-item-4">Grid Setup</a>
+				<a class="list-group-item list-group-item-action" href="#list-item-5">Basic Components</a>
+				<a class="list-group-item list-group-item-action" href="#list-item-6">CSS Grid Units</a>
+				<a class="list-group-item list-group-item-action" href="#list-item-7">Justify and Align</a>
+				<a class="list-group-item list-group-item-action" href="#list-item-8">Example Layout</a>
+				<a class="list-group-item list-group-item-action" href="#list-item-9">Additional Resources</a>
+				<a class="list-group-item list-group-item-action" href="#list-item-10">Page Info</a>
+			</div>
+			<div data-spy="scroll" id="text-div" data-target="#sections-list" data-offset="20" class="scrollspy-example vh-100 col">
+
+				<h4 id="list-item-1">Introduction</h4>
+				<p>
+					CSS Grid Layout is the most powerful layout system available in CSS. It is a 2-dimensional system, meaning it can
+					handle both columns and rows, unlike flexbox which is largely a 1-dimensional system. You work with Grid Layout by
+					applying CSS rules both to a parent element (which becomes the Grid Container) and to that element's children (which
+					become Grid Items).
+				</p>
+				<span>(Source: <a target="_blank"
+						href="https://css-tricks.com/snippets/css/complete-guide-grid/">css-tricks.com</a>)</span>
+				<p>
+					CSS grid can create more asymmetrical layouts than the previous grid and layout options like CSS floats. It also
+					allows for more standardized code that works across browsers. This is in contrast to relying on specific browser hacks
+					or complicated workarounds.
+				</p>
+				<p>
+					One issue with using floats in CSS is if content gets added to one portion of the page it could disrupt the flow of
+					the page and break the layout. This is due to the varying heights for layout elements. Though CSS flexbox supports
+					flexible layouts and provides the flexibility of creating complex layouts, it fails when the need for creating
+					responsive layouts in 2-dimensional space arises. That is where CSS grid layout shines.
+				</p>
+				<span>(Source: <a target="_blank"
+						href="https://en.wikipedia.org/wiki/CSS_grid_layout">Wikipedia.org</a>)</span>
+
+				<h4 id="list-item-2">Recommended Background Knowledge</h4>
+				<p>Before learning CSS Grid you must be familiar with the basics of modern CSS, also known as CSS3.
+				</p>
+				<p>CSS is a cornerstone technology of the web, alongside HTML and Javascript.
+					CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts. This
+					separation can improve content accessibility, provide more flexibility and control in the specification of
+					presentation characteristics, enable multiple web pages to share formatting by specifying the relevant CSS in a
+					separate .css file, and reduce complexity and repetition in the structural content.
+				</p>
+				<p>Specifically, before learning Grid you should know: </p>
+				<ul>
+					<li>CSS selectors, including id and class</li>
+					<li>Positioning elements on a page</li>
+					<li>Basics of width and height and their units (px, em, rem, %)</li>
+					<li>Styling text and images</li>
+					<li>Setting the background color and border of a div</li>
+					<li>Padding and margins</li>
+					<li>Inheritance</li>
+					<li>The basics of color notation in CSS (named colors, hex codes, rgb)</li>
+				</ul>
+				<p>PS - If you don’t know, that’s ok! Head on over to <a target="_blank"
+						href="www.freecodeca,p.org">freecodecamp.org</a> and take their basic CSS course. You will be done in an hour and
+					know all of the above properties of CSS. To review these topics, feel free to read through the MDN CSS page (link: <a
+						target="_blank"
+						href="https://developer.mozilla.org/en-US/docs/Web/CSS">https://developer.mozilla.org/en-US/docs/Web/CSS</a>).</p>
+
+				<h4 id="list-item-3">Grid vs Flexbox</h4>
+				<p>The major difference between these technologies is that CSS Grid is made for two-dimensional layout
+					while Flexbox is for one. This means Flexbox can work on either row or columns at a time, but Grids can work on both.
+				</p>
+				<p>When working on either element (row or column), you are most associated with the content. Flexbox,
+					here, gives you more flexibility. HTML markup and CSS will be easy to manage in this type of scenario.</p>
+				<p>However, when working with the overall web page layouts, CSS Grid does away with the nightmares of
+					coding. It gives you more flexibility to move around the blocks irrespective of your HTML markup.</p>
+
+				<h5>Quick comparison:</h5>
+
+				<table class="table">
+					<thead class="thead-light">
+						<tr>
+							<th scope="col">Element</th>
+							<th scope="col">Grid</th>
+							<th scope="col">Flexbox</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Dimension</th>
+							<td>Two dimensional</td>
+							<td>One dimensional</td>
+						</tr>
+						<tr>
+							<th scope="row">Support type</th>
+							<td>Layout-first</td>
+							<td>Content first</td>
+						</tr>
+						<tr>
+							<th scope="row">Page responsiveness</th>
+							<td>Yes</td>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th scope="row">Other features</th>
+							<td>Can flex a combination of items through space-occupying features</td>
+							<td>Can push content elements to extreme alignment</td>
+						</tr>
+						<tr>
+							<th scope="row">Browser Support</th>
+							<td>Firefox, Chrome, Safari, IE10+, IOS Safari</td>
+							<td>Firefox, Chrome, Safari, IE10+, IOS Safari, Opera</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p>(Source: <a target="_blank"
+						href="https://www.srijan.net/blog/css-grid-vs-flexbox">https://www.srijan.net/blog/css-grid-vs-flexbox</a>)</p>
+				
+				<h4 id="list-item-4">Grid Setup</h4>
+				<p>To set up a div so that its contents are grid elements, we must set the display property to grid,
+					like so:</p>
+				<pre>
+				                    <code>
+				    div {
+				        display: grid;
+				    }</code>
+				</pre>
+				<p>The display property specifies the display behavior (the type of rendering box) of an element.
+					In HTML, the default display property value is taken from the HTML specifications or from the browser/user default
+					style sheet. The default value in XML is inline, including SVG elements.
+				</p>
+				<span>(Source: <a target="_blank"
+						href="https://www.w3schools.com/cssref/pr_class_display.asp">w3schools.com</a>)</span>
+				<p>Trying to use other display properties on a grid element will have no effect. These properties
+					include:</p>
+				<ul>
+					<li>Float</li>
+					<li>Block</li>
+					<li>Inline-block</li>
+					<li>Table-cell</li>
+				</ul>
+
+				<h4 id="list-item-5">Basic Components</h4>
+				<p class="main-text">The major elements used to create grids in CSS are grid-gap, grid-template-areas,
+					grid-template-columns, grid-template-rows, and grid-area. Here we will touch on each of these subjects and when they
+					are used.</p>
+				<ul>
+					<li>Grid gap - defines the space between grid elements
+						<pre>
+				                        <code>
+				grid-gap: 20px;</code>
+				                    </pre>
+					</li>
+					<li>Grid-template-areas - pre-defines the grid within a container by dividing the container into named sections. Grid
+						areas can be repeated if, for instance, you want a row to stretch across multiple columns, as in the bottom row in
+						the example below.
+						<pre>
+				                        <code>
+				grid-template-areas:
+				    “area1 area2”
+				    “area3 area4”
+				    “area5 area5”;</code>
+				                    </pre>
+					</li>
+					<li>Grid-area - This property is defined as a style property within the child element.
+						<pre>
+				                            <code>
+				child-div {
+				    grid-area: area-name;
+				}</code>
+				                    </pre>
+					</li>
+					<li>Grid-template-columns - This property is given to a parent element to predetermine how a grid will be divided into
+						columns.
+						<pre>
+				                            <code>
+				grid-template-columns: 25% 25% 25% 25%;</code>
+				                        </pre>
+					</li>
+					<li>Grid-template-rows - This property is given to a parent element to predetermine how a grid will be divided into
+						rows.
+						<pre>
+				                            <code>
+				grid-template-rows: 50% 50%;</code>
+				                        </pre>
+					</li>
+				</ul>
+
+				<h4 id="list-item-6">CSS Grid Units</h4>
+				<p class="main-text">Many units can be used to determine column or row size in Grid. Among those are %, where CSS Grid
+					will adapt a grid item to be that percentage of a container; we can also use traditional, absolute units like px and
+					em.</p>
+				<p class="main-text">The new unit type introduced to be used with CSS Grid is the fr unit. The fr unit dictates that a
+					specific fraction will be dedicated to the size of a grid item. The fr unit’s actual size is dependent on the sizes of
+					the other grid items in its container.</p>
+				<p class="main-text">If grid-template-rows is given a value of just one 1fr. Then that container is divided into only
+					one grid row and that row takes up 1 fraction of 1 total grid items, or 100% of the space. On the other hand, if it
+					were to be set to 1fr 1fr 1fr, then each grid item these units represent will be 1/3 of the total space, for a total
+					of 100%. The fr unit can also be used in combination with grid items with other units.</p>
+				<p class="main-text">The auto unit size stretches the size of the grid item based on whatever space is available.</p>
+
+				<h4 id="list-item-7">Justify and Align</h4>
+				<p class="main-text">As discussed, float and block properties will no longer work with grid items. Therefore,
+					positioning items within a grid is handled differently, with the align and justify properties.</p>
+				<p class="main-text">Justify-items and justify-self are properties that apply to the row axis. Justify-items determines
+					how columns behave in a grid container. Justify-self also controls this but can only affect the item it is applied to,
+					and will have no effect on the justification of other grid items.</p>
+				<p class="main-text">Align-items and align-self are properties that apply to the column axis. Align-items determines how
+					rows behave, and how they are positioned vertically within a container. Align-self has this same effect but is only
+					applied to a child grid element.</p>
+
+				<h4 id="list-item-8">Example Layout</h4>
+				<p class="main-text">The following is an example of the "holy grail" website layout, a common website design, put
+					together in CSS Grid.</p>
+					
+					<pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+					<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+					<span class="nt">div</span> <span class="p">{</span> <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span><span class="p">;</span> <span class="p">}</span>
+					<span class="nt">body</span> <span class="p">{</span>
+					    <span class="k">display</span><span class="p">:</span> <span class="k">grid</span><span class="p">;</span>
+					    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">10</span><span class="kt">em</span> <span class="kc">auto</span> <span class="mi">10</span><span class="kt">em</span><span class="p">;</span>
+					    <span class="k">grid-template-areas</span><span class="p">:</span> 
+					        <span class="s2">&quot;header header header&quot;</span>
+					        <span class="s2">&quot;left   middle right&quot;</span>
+					        <span class="s2">&quot;footer footer footer&quot;</span><span class="p">;</span>
+					<span class="p">}</span>
+					<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+					<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+					    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;grid-area: header&quot;</span><span class="p">&gt;</span>The header<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+					    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;grid-area: footer&quot;</span><span class="p">&gt;</span>The footer<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+					    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;grid-area: left&quot;</span><span class="p">&gt;</span>The left panel<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+					    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;grid-area: middle; height: 200px&quot;</span><span class="p">&gt;</span>The main content area<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+					    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;grid-area: right&quot;</span><span class="p">&gt;</span>The right panel<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+					<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+					<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+					</pre>
+				
+				<div class="img-div">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/CSS_Grid_Holy_Grail_Layout.png"
+						alt="css-grid-holy-grail-layout">
+				</div>
+				<span class="citation-span">(Source: <a target="_blank"
+						href="https://en.wikipedia.org/wiki/CSS_grid_layout">https://en.wikipedia.org/wiki/CSS_grid_layout</a>)</span>
+
+				<h4 id="list-item-9">Additional Resources</h4>
+				<p class="main-text">Additional reading and study materials, as well as the references for this page, can be found at
+					the following links:</p>
+				<ul>
+					<li><a target="_blank"
+							href="https://www.w3schools.com/css/css_grid.asp">https://www.w3schools.com/css/css_grid.asp</a></li>
+					<li><a target="_blank"
+							href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids">https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids</a>
+					</li>
+					<li><a target="_blank" href="https://cssgridgarden.com/">https://cssgridgarden.com/</a></li>
+					<li><a target="_blank" href="https://learncssgrid.com/">https://learncssgrid.com/</a></li>
+					<li><a target="_blank"
+							href="https://www.youtube.com/watch?v=OxrsO4aIjyc&t=3s">https://www.youtube.com/watch?v=OxrsO4aIjyc&t=3s</a></li>
+				</ul>
+
+				<h4 id="list-item-10">Page Info</h4>
+				<p class="main-text">Created by James in Brooklyn, NY<br>
+					January 2020</p>
+				<img src="Logo2.jpg" width="400px">
+				
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+</body>
+</html>

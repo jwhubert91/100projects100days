@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS Pomodoro timer</title>
+	<link rel="icon" type="image/png" href="tomato-icon.png" width="16px">
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background-color: teal;
+			text-align: center;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		body h1 {
+			color: #D7B061;
+		}
+		p#description {
+			margin: 20px auto;
+			font-size: 16px;
+			color: #FFEBC2;
+			width: 50%;
+		}
+		p#description a {
+			color: #172C5D;
+		}
+		p#description a:visited {
+			color: #172C5D;
+		}
+		p button {
+			margin: 5px;
+			font-size: 18px;
+			padding: 5px 20px;
+			background-color: #FFEBC2;
+		}
+		p button:focus {
+			outline:0;
+		}
+		@media only screen and (max-width: 680px) {
+			p#description {
+				width: 90%;
+			}
+		}
+		.image-container {
+			margin: 0 auto;
+			padding: 0;
+			width: 250px;
+			height: 230px;
+			background-image: url("tomato-icon.png");
+			background-position: center;
+  		background-repeat: no-repeat;
+  		background-size: cover;
+		}
+		p#countdown-text {
+			font-size: 50px;
+			font-weight: bold;
+			line-height: 280px;
+		}
+		p#break-text {
+			color: #FFEBC2;
+		}
+	
+	</style>
+</head>
+<body>
+	<h1>Simple Pomodoro Timer</h1>
+
+	<p id="description">This simple pomodoro timer follows a 25 minute work / 5 minute break schedule. Read more about the pomodoro technique here: <a target="_none" href="https://en.wikipedia.org/wiki/Pomodoro_Technique">link</a><div class=""></div></p>
+
+	<p id="buttons-container"><button id="start-button">Start</button></p>
+
+	<p id="break-text"></p>
+
+	<div class="image-container">
+		<p id="countdown-text"></p>
+	</div>
+
+	<script>
+
+		// set up variables
+		let sessionMins = 25;
+		let seconds = 0;
+		let interval;
+		let sessionBool = false;
+
+		// create variables to represent DOM elements and sounds
+		let countdownTextEl = document.getElementById("countdown-text");
+		let startButtonEl = document.getElementById("start-button");
+		let breakTextEl = document.getElementById("break-text");
+
+		let tickingSound = new Audio("ticking-clock.wav");
+		tickingSound.volume = 0.2;
+		let bellSound = new Audio("bell.wav");
+		let resetSound = new Audio("chime-ascend.mp3");
+
+		// function that returns text to be rendered for countdown clock
+		function timeText(seconds) {
+			let minuteOutput = Math.floor(seconds / 60);
+			let secondsOutput = seconds - (minuteOutput * 60);
+			let finalSecondsOutput = "00";
+			if (secondsOutput < 10) {
+				finalSecondsOutput = "0" + secondsOutput;
+			} else {
+				finalSecondsOutput = secondsOutput;
+			}
+			return minuteOutput + ":" + finalSecondsOutput;
+		}
+
+		// function that executes what happens on timer reset
+		function resetFunc() {
+			clearInterval(interval);
+			sessionBool = false;
+			startButtonEl.innerText = "Start";
+			breakTextEl.innerText = "";
+			countdownTextEl.innerHTML = timeText(sessionMins * 60);
+		}
+
+		// function that turns the pomodoro timer into a break timer
+		function breakFunc(mins) {
+			seconds = mins * 60 || 0;
+			interval = setInterval(function () {
+				seconds--;
+				countdownTextEl.innerHTML = timeText(seconds);
+				if (!seconds) {
+					resetSound.play();
+					resetFunc();
+				}
+			}, 1000)
+		}
+
+		// function that executes a pomodoro countdown session
+		function pomodoro(mins) {
+			seconds = mins * 60 || 0;
+			interval = setInterval(function() {
+				seconds--;
+				countdownTextEl.innerHTML = timeText(seconds);
+				if (!seconds) {
+					clearInterval(interval);
+					breakTextEl.innerText = "Break time!";
+					bellSound.play();
+					breakFunc(5);
+				}
+			}, 1000)
+		}
+
+		// render full countdown clock on page load
+		window.addEventListener('DOMContentLoaded', (event) => {
+			countdownTextEl.innerHTML = timeText(sessionMins * 60);
+		})
+
+		// button text function - start or reset depending on session
+		startButtonEl.addEventListener('click', (event) => {
+			if (sessionBool == false) {
+				startButtonEl.innerText = "Reset";
+				sessionBool = true;
+				tickingSound.play();
+				pomodoro(sessionMins);
+			} else {
+				resetFunc();
+			}
+		});
+	
+	</script>
+	
+</body>
+</html>
