@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Larry David Soundboard</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<nav>
+		<h1 id="page-header">Larry David Soundboard</h1>
+	</nav>
+
+	<main>
+		<div id="board-card-1" class="sound-button">
+			<span class="sound-label">Going out</span>
+		</div>
+		<div id="board-card-2" class="sound-button">
+			<span class="sound-label">R U Jewish?</span>
+		</div>
+		<div id="board-card-3" class="sound-button">
+			<span class="sound-label">Bingo</span>
+		</div>
+		<div id="board-card-4" class="sound-button">
+			<span class="sound-label">Christians</span>
+		</div>
+		<div id="board-card-5" class="sound-button">
+			<span class="sound-label">Great time heaven</span>
+		</div>
+		<div id="board-card-6" class="sound-button">
+			<span class="sound-label">I got fired</span>
+		</div>
+		<div id="board-card-7" class="sound-button">
+			<span class="sound-label">I have a friend</span>
+		</div>
+		<div id="board-card-8" class="sound-button">
+			<span class="sound-label">The recipe</span>
+		</div>
+		<div id="board-card-9" class="sound-button">
+			<span class="sound-label">Cobb salad</span>
+		</div>
+		<div id="board-card-10" class="sound-button">
+			<span class="sound-label">The doctor</span>
+		</div>
+		<div id="board-card-12" class="sound-button">
+			<span class="sound-label">Nothing gives me more pleasure</span>
+		</div>
+		<div id="board-card-13" class="sound-button">
+			<span class="sound-label">Pinata</span>
+		</div>
+		<div id="board-card-14" class="sound-button">
+			<span class="sound-label">Dog Bite</span>
+		</div>
+		<div id="board-card-15" class="sound-button">
+			<span class="sound-label">What are you doin?</span>
+		</div>
+		<div id="board-card-16" class="sound-button">
+			<span class="sound-label">Pants tent</span>
+		</div>
+		<div id="board-card-17" class="sound-button">
+			<span class="sound-label">Very disrespectful</span>
+		</div>
+		<div id="board-card-18" class="sound-button">
+			<span class="sound-label">What a moron</span>
+		</div>
+		<div id="board-card-19" class="sound-button">
+			<span class="sound-label">See you later</span>
+		</div>
+		<div id="board-card-20" class="sound-button">
+			<span class="sound-label">Your dad is that wrestler?</span>
+		</div>
+		<div id="board-card-21" class="sound-button">
+			<span class="sound-label">Small petty man</span>
+		</div>
+	</main>
+
+	<audio id="sound-1" src="larry_sounds/Alright Im going out.mp3"></audio>
+	<audio id="sound-2" src="larry_sounds/Are you Jewish.mp3"></audio>
+	<audio id="sound-3" src="larry_sounds/Bingo Champion.mp3"></audio>
+	<audio id="sound-4" src="larry_sounds/Christians.mp3"></audio>
+	<audio id="sound-5" src="larry_sounds/Great time heaven.mp3"></audio>
+	<audio id="sound-6" src="larry_sounds/I got fired.mp3"></audio>
+	<audio id="sound-7" src="larry_sounds/I have a friend.mp3"></audio>
+	<audio id="sound-8" src="larry_sounds/I would love if you could give me the recipe.mp3"></audio>
+	<audio id="sound-9" src="larry_sounds/Im the cobb salad.mp3"></audio>
+	<audio id="sound-10" src="larry_sounds/Larry goes to the Doctor.mp3"></audio>
+	<audio id="sound-12" src="larry_sounds/Nothing gives me more pleasure.mp3"></audio>
+	<audio id="sound-13" src="larry_sounds/Pinata.mp3"></audio>
+	<audio id="sound-14" src="larry_sounds/Sees Doctor about Dog Bite.mp3"></audio>
+	<audio id="sound-15" src="larry_sounds/So what are you doin today.mp3"></audio>
+	<audio id="sound-16" src="larry_sounds/The Pants Tent.mp3"></audio>
+	<audio id="sound-17" src="larry_sounds/This is very disrespectful.mp3"></audio>
+	<audio id="sound-18" src="larry_sounds/What a moron.mp3"></audio>
+	<audio id="sound-19" src="larry_sounds/You swing by Ill see you later.mp3"></audio>
+	<audio id="sound-20" src="larry_sounds/Your Dad is that wrestler.mp3"></audio>
+	<audio id="sound-21" src="larry_sounds/Youre a small petty man.mp3"></audio>
+
+	<script>
+
+			// jquery click listener for divs
+			$('main').on('click', 'div', function (e) {
+				const divId = e.target.id;
+				const audioId = divId.replace("board-card", "sound");
+
+				// pause any playing audio
+				const audios = document.querySelectorAll('audio');
+				audios.forEach(audio => audio.pause());
+
+				// play audio
+				const audio = document.querySelector(`#${audioId}`);
+				if (!audio) return;
+				audio.currentTime = 0;
+				audio.play();
+
+				// add .playing css class
+				const DivEl = document.querySelector(`#${divId}`);
+				DivEl.classList.add("playing");
+			});
+
+			// function to remove transition effect from div
+			function removeTransition(e) {
+					if (e.propertyName !== "transform") return; // skip if not transform
+					this.classList.remove("playing");
+			}
+
+			const buttons = document.querySelectorAll('div');
+			buttons.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+	</script>
+	
+</body>
+</html>
