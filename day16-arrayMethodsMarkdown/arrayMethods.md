@@ -147,7 +147,95 @@ const sortedByScore = players.sort((a,b) => b.score - a.score);
 	{name: "Mario", score: 10}]
 ```
 
-## 7. Array Method Stringing
+## 7. Some
+A. Overview
+The some method, when applied to an array, returns true if there is any element in the array that returns true when passed through the code block.
+
+B. Example
+```
+const homePricesInMillions = [1,2,3,4,5,0.8,3,0.7];
+const cheapHomeExists = homePricesInMillions.some(price => price < 1);
+
+> true
+```
+
+C. Explanation
+The above example tests if there are any elements (prices) in the homePricesInMillions array that are less than 1 million. The .some() method is applied to check if any of the elements are less than 1. We store the boolean result in a variable to reference later.
+
+## 8. Every
+A. Overview
+The every method, when applied to an array, returns true if all elements in the array return true when passed through the code block.
+
+B. Example
+```
+const homePricesInMillions = [1,2,3,4,5,0.8,3,0.7];
+const cheapHomeExists = homePricesInMillions.some(price => price < 1);
+
+> false
+```
+
+C. Explanation
+The above example tests if all elements (prices) in the homePricesInMillions array are less than 1 million. The .every method is applied to check if all of the elements are less than 1. In this case the answer is false. We store the boolean result in a variable to reference later.
+
+## 9. Find Index
+A. Overview
+The .findIndex() method returns the index of the first element in the array which returns true when passed to the codeblock.
+
+B. Example
+```
+const homePricesInMillions = [1,2,3,4,5,0.8,3,0.7];
+const firstCheapHomeIndex = homePricesInMillions.findIndex(price => price < 1);
+
+> 5
+```
+
+## 10. Slice
+A. Overview
+The .slice() method, when applied to an array, takes in an array of elements. It can take either one or two arguments. With a single argument, the default functionality is to return an array of all elements at the index of the argument given and after. With two arguments, it starts slicing using the index of the first element in the array and takes as many elements as are specified by the second argument. This method is non-destructive.
+
+B. Two examples
+i. With a single argument
+```
+const animals = ["dog","cat","mouse","rat","parrot"];
+animals.slice(2);
+
+> ["mouse","rat","parrot"]
+
+ii. With two arguments
+animals.slice(2,2);
+
+> ["mouse","rat"];
+```
+
+## 11. Splice
+A. Overview
+The .splice() method is a destructive array method that takes in an argument representing an actual element in an array. If that element is found, then the second argument deletes however elements are specified (an integer). If there is a third argument, that specifies what the first element will be replaced with.
+
+B. Example
+```
+const birds = ["crow","pigeon","seagull","falcon","albatross"];
+birds.splice("seagull",1,"bluejay");
+console.log(birds);
+
+> ["crow","pigeon","bluejay","falcon","albatross"]
+```
+
+## 12. Spread
+A. Overview
+The spread operator deconstructs an array into a list of numbers, so that arrays can be easily combined into a single array with only one level of nestedness.
+
+B. Example
+```
+const smallNumbers = [1,2,3];
+const bigNumbers = [7,8,9];
+
+const newArray = [...smallNumbers, ...bigNumbers];
+console.log(newArray);
+
+> [1, 2, 3, 7, 8, 9]
+```
+
+## 13. Array Method Stringing
 A. Overview
 Array methods, if properly used, can be strung together to create a desired result if the input and return values are of the correct data type to be used by the next method.
 

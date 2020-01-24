@@ -1,0 +1,129 @@
+html, body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+}
+nav {
+	height: 108px;
+	width: 100%;
+	margin: 0;
+	display: block;
+}
+.header-logo-img {
+	height: 41px;
+	float: left;
+	margin-top: 3px;
+	margin-left: 7px;
+}
+.nav-button {
+	float: right;
+	text-decoration: none;
+	color: black;
+	font-size: 14px;
+}
+.shopping-cart img {
+	height: 23px;
+	margin: 10px 15px 0 23px;
+}
+.hero-card-image-wrapper {
+	width: 100%;
+}
+.hero-card-image-wrapper img {
+	object-fit: cover;
+	width: 100%;
+	height: 300px;
+}
+
+/* entire mobile-first styling */
+@media only screen and (max-width: 900px) {
+	nav {
+		border-bottom: 1px solid gainsboro;
+	}
+	nav div {
+		margin: 0;
+		padding: 0;
+		line-height: 43px;
+	}
+	.nav-options-section {
+		display: none;
+	}
+	.floats-nav-section {
+		height: 40%;
+	}
+	.search-nav-section {
+		clear: both;
+		height: 60%;
+		display: grid;
+		grid-template-columns: 50px auto;
+		grid-template-rows: 1fr;
+	}
+	img.sandwich-menu {
+		height: 28px;
+		margin: 15px 0 0 10px;
+	}
+	.search-bar-container {
+		display: grid;
+		grid-template-columns: auto 50px;
+		padding: 5px 15px 13px 15px;
+	}
+	.search-bar {
+		width: auto;
+		background-color: #F1F1F1;
+		border-radius: 25px 0 0 25px;
+		font-size: 16px;
+		padding-left: 15px;
+		outline: none;
+		border-right: none;
+	}
+	.search-bar-button {
+		border-radius: 0 25px 25px 0;
+		background-color: #F1F1F1;
+		outline: none;
+	}
+	.search-bar-button-img {
+		height: 20px;
+		padding-right: 5px;
+	}
+	.main-section-header-text {
+		text-align: center;
+		font-weight: lighter;
+		font-family: 'Times New Roman', Times, serif;
+		font-size: 25px;
+		color: darkslategray;
+		margin: 20px 5px;
+	}
+	.main-hero-card {
+		margin: 5px 12px;
+		padding-bottom: 5px;
+		width: auto;
+		background-color: #F8EBE6;
+		text-align: center;
+	}
+	.main-hero-card a {
+		text-decoration: none;
+		color: black;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		z-index: 100;
+	}
+	h3.main-section-header-text {
+		color: black;
+		font-weight: lighter;
+	}
+	.fresh-finds {
+		background-image: url("fresh-finds-girl.jpg");
+		background-size: contain;
+		height: 150px;
+		margin: 15px 12px;
+		width: 150px auto;
+	}
+	.main-item-rounded-border {
+		border-radius: 10px;
+		border: 0.3px solid gainsboro;
+	}
+	
+
+}

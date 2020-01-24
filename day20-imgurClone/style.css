@@ -1,0 +1,135 @@
+@font-face {
+  font-family: Coverface_SE;
+  src: url("Coverface_SE/Coverface_SE_Bold_FS.ttf");
+}
+html, body {
+	margin: 0;
+	padding: 0;
+}
+.custom-font {
+	font-family: "Coverface_SE";
+	letter-spacing: 2.5px;
+	color: white;
+}
+div.hero-image {
+	height: 400px;
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+	background-image: url("hero-image.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+}
+nav {
+	position: fixed;
+	height: 50px;
+	width: 100vw;
+	margin: 0;
+	background-color: rgba(255,255,255,0);	
+	line-height: 50px;
+}
+.nav-logo {
+	margin-left: 10px;
+	display: inline;
+	font-size: 22px;
+}
+.logo-dotted-green-i {
+	height: 7px;
+	width: 7px;
+	border-radius: 50%;
+	position: fixed;
+	border: none;
+	background-color: #59B86F;
+	margin-top: 11px;
+	margin-left: 9.3px;
+}
+.new-post-nav-button {
+	height: 35px;
+	width: 120px;
+	border: none;
+	border-radius: 3px; 
+	background-color: #59B86F;
+	padding: 5px;
+	margin: 5px 15px;
+	position: relative;
+	text-align: left;
+}
+.nav-button-img {
+	margin-left: 5px;
+}
+.nav-button-text {
+	position: absolute;
+	margin-top: 3px;
+	color: white;
+	font-size: 14px;
+	margin-left: 15px;
+}
+.nav-search-input {
+	height: 35px;
+	width: 50%;
+	border: none;
+	background-color: rgba(255,255,255,0.15);
+	font-size: 15px;
+	padding: 0 10px;
+	position: fixed;
+	margin-top: 7px;
+	margin-left: 20px;
+	border-radius: 5px;
+}
+.nav-search-input::placeholder {
+	color: lightgray;
+	opacity: 0.6;
+	letter-spacing: 1px;
+}
+.nav-thingy-button {
+	background-color: none;
+	float: right;
+	margin-top: 10px;
+	margin-right: 15px;
+}
+a.raw-nav-link {
+	float: right;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	margin-right: 20px;
+}
+.sign-up-nav-button {
+	height: 35px;
+	width: 120px;
+	border: none;
+	border-radius: 3px; 
+	background-color: #59B86F;
+	padding: 5px;
+	position: relative;
+	text-align: center;
+	float: right;
+	margin-top: 8px;
+	margin-right: 10px;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+}
+.tagline {
+	margin: 60px;
+	position: absolute;
+	width: 100%;
+	color: #AED8EA;
+	font-size: 18px;
+	font-family: "Coverface_SE";
+	letter-spacing: 1px;
+}
+@media only screen and (max-width: 900px) {
+  .nav-search-input {
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .nav-search-input {
+    display: none;
+  }
+}
+main {
+	height: 1000px;
+}
